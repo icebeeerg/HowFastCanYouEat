@@ -6,9 +6,6 @@ public class Food {
     int time;
     int kpm;
 
-    public Food() {
-
-    }
     public Food(String name, int numberOfFood, int time) {
         this.name = name;
         this.numberOfFood = numberOfFood;

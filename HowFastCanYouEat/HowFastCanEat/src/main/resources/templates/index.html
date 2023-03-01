@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Top Dogs</h1>
+<div class="row">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Hotdogs Eaten</th>
+      <th>Time</th>
+      <th>Hotdogs per minute</th>
+    </tr>
+    <tr th:each="record : ${korvList}">
+      <td th:text="${record.name}"></td>
+      <td th:text="${record.numberOfFood}"></td>
+      <td th:text="${record.time}"></td>
+      <td th:text="${record.kpm}"></td>
+    </tr>
+  </table>
+  <a href="/topdogs"><button>All Hotdogs</button></a>
+</div>
+
+<form action="/saveHotdog" th:object="${food}" method="POST">
+  Name: <input type="text" th:field="*{name}"> <br>
+  Number of food: <input type="text" th:field="*{numberOfFood}"> <br>
+  Time in minutes: <input type="text" th:field="*{time}">
+  <input type="submit" value="Submit new Record">
+</form>
+
+<div class="row">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Pizzas Eaten</th>
+      <th>Time</th>
+      <th>Pizzas per minute</th>
+    </tr>
+    <tr th:each="record : ${pizzaList}">
+      <td th:text="${record.name}"></td>
+      <td th:text="${record.numberOfFood}"></td>
+      <td th:text="${record.time}"></td>
+      <td th:text="${record.kpm}"></td>
+    </tr>
+  </table>
+  <a href="/toppizza"><button>All pizzas</button></a>
+</div>
+<form action="/savePizza" th:object="${food}" method="POST">
+  Name: <input type="text" th:field="*{name}"> <br>
+  Number of food: <input type="text" th:field="*{numberOfFood}"> <br>
+  Time in minutes: <input type="text" th:field="*{time}">
+  <input type="submit" value="Submit new Record">
+</form>
+
+<div class="row">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Hamburgers Eaten</th>
+      <th>Time</th>
+      <th>Hamburgers per minute</th>
+    </tr>
+    <tr th:each="record : ${burgerList}">
+      <td th:text="${record.name}"></td>
+      <td th:text="${record.numberOfFood}"></td>
+      <td th:text="${record.time}"></td>
+      <td th:text="${record.kpm}"></td>
+    </tr>
+  </table>
+  <a href="/topburger"><button>All burgers</button></a>
+</div>
+<form action="/saveBurger" th:object="${food}" method="POST">
+  Name: <input type="text" th:field="*{name}"> <br>
+  Number of food: <input type="text" th:field="*{numberOfFood}"> <br>
+  Time in minutes: <input type="text" th:field="*{time}">
+  <input type="submit" value="Submit new Record">
+</form>
+
+</body>
+</html>
